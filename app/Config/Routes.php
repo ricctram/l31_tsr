@@ -29,10 +29,9 @@ $routes->get('auth/reset_password/(:hash)', 'Auth::reset_password/$1');
 $routes->post('auth/reset_password/(:hash)', 'Auth::reset_password/$1');
 
 // Rotte per funzionalità generiche dell'applicazione
-$routes->get('dashboard', 'Dashboard::index');
-$routes->get('profile', 'Profile::index');
-$routes->get('settings', 'Settings::index');
-$routes->get('about', 'About::index');
+$routes->get('bacheca', 'Dashboard::index');
+$routes->get('profilo', 'Profile::index');
+//$routes->get('impostazioni', 'Settings::index');
 
 // Rotte per gli eventi
 $routes->get('evento', 'Evento::index');
@@ -49,6 +48,14 @@ $routes->post('utente/store', 'Utente::store');
 $routes->get('utente/edit/(:num)', 'Utente::edit/$1');
 $routes->post('utente/update/(:num)', 'Utente::update/$1');
 $routes->get('utente/delete/(:num)', 'Utente::delete/$1');
+
+// Rotte per i clienti
+$routes->get('cliente', 'Cliente::index');
+$routes->get('cliente/create', 'Cliente::create');
+$routes->post('cliente/store', 'Cliente::store');
+$routes->get('cliente/edit/(:num)', 'Cliente::edit/$1');
+$routes->post('cliente/update/(:num)', 'Cliente::update/$1');
+$routes->get('cliente/delete/(:num)', 'Cliente::delete/$1');
 
 // Rotte per il menu
 $routes->get('menu', 'Menu::index');
