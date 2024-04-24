@@ -8,9 +8,25 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 // Rotte per il sistema di autenticazione
-$routes->get('login', 'Auth::login');
-$routes->post('login', 'Auth::process_login');
-$routes->get('logout', 'Auth::logout');
+$routes->get('auth/', 'Auth::index');
+$routes->get('auth/login', 'Auth::login');
+$routes->post('auth/login', 'Auth::login');
+$routes->get('auth/logout', 'Auth::logout');
+$routes->add('auth/forgot_password', 'Auth::forgot_password');
+$routes->add('auth/create_user', 'Auth::create_user');
+$routes->post('auth/create_user', 'Auth::create_user');
+$routes->add('auth/edit_user/(:num)', 'Auth::edit_user/$1');
+$routes->get('auth/delete_user/(:num)', 'Auth::delete_user/$1');
+$routes->post('auth/edit_user/(:num)', 'Auth::edit_user/$1');
+$routes->add('auth/create_group', 'Auth::create_group');
+$routes->add('auth/edit_group/(:num)', 'Auth::edit_group/$1');
+$routes->post('auth/edit_group/(:num)', 'Auth::edit_group/$1');
+$routes->get('auth/delete_group/(:num)', 'Auth::delete_group/$1');
+$routes->get('auth/activate/(:num)', 'Auth::activate/$1');
+$routes->get('auth/activate/(:num)/(:hash)', 'Auth::activate/$1/$2');
+$routes->add('auth/deactivate/(:num)', 'Auth::deactivate/$1');
+$routes->get('auth/reset_password/(:hash)', 'Auth::reset_password/$1');
+$routes->post('auth/reset_password/(:hash)', 'Auth::reset_password/$1');
 
 // Rotte per funzionalità generiche dell'applicazione
 $routes->get('dashboard', 'Dashboard::index');
