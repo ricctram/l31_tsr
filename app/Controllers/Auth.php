@@ -61,7 +61,7 @@ class Auth extends BaseController
 	 *
 	 * @var string
 	 */
-	protected $viewsFolder = 'IonAuth\Views\auth';
+	protected $viewsFolder = 'auth';
 
 	/**
 	 * Constructor
