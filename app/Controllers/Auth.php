@@ -863,6 +863,7 @@ class Auth extends BaseController
 			return redirect()->to('/auth');
 		}
 
+		$this->data['id'] = $id;
 		$this->data['title'] = lang('Auth.edit_group_title');
 
 		if (! $this->ionAuth->loggedIn() || ! $this->ionAuth->isAdmin())
@@ -898,8 +899,14 @@ class Auth extends BaseController
 
 		// pass the user to the view
 		$this->data['group'] = $group;
+		$this->data['group_default'] = $this->configIonAuth->defaultGroup === $group->name ? true : false;
+		$this->data['group_admin'] = $this->configIonAuth->adminGroup === $group->name ? true : false;
 
-		$readonly = $this->configIonAuth->adminGroup === $group->name ? 'readonly' : '';
+		if ($this->configIonAuth->adminGroup === $group->name || $this->configIonAuth->defaultGroup === $group->name) {
+			$readonly = 'readonly';
+		} else {
+			$readonly = '';
+		}
 
 		$this->data['group_name']        = [
 			'name'    => 'group_name',
@@ -920,6 +927,7 @@ class Auth extends BaseController
 
 	public function delete_group(int $id)
 	{
+		
 		if (! $this->ionAuth->loggedIn() || (! $this->ionAuth->isAdmin() && ! ($this->ionAuth->user()->row()->id == $id)))
 		{
 			return redirect()->to('/auth');
