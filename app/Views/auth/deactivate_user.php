@@ -1,3 +1,8 @@
+
+<?= $this->extend('layout') ?>
+
+<?= $this->section('content') ?>
+
 <h1><?php echo lang('Auth.deactivate_heading');?></h1>
 <p><?php echo sprintf(lang('Auth.deactivate_subheading'), $user->username);?></p>
 
@@ -15,3 +20,5 @@
   <p><?php echo form_submit('submit', lang('Auth.deactivate_submit_btn'));?></p>
 
 <?php echo form_close();?>
+
+<?= $this->endSection() ?>

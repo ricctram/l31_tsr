@@ -1,3 +1,7 @@
+<?= $this->extend('layout') ?>
+
+<?= $this->section('content') ?>
+
 <h1><?php echo lang('Auth.reset_password_heading');?></h1>
 
 <div id="infoMessage"><?php echo $message;?></div>
@@ -19,3 +23,5 @@
 	<p><?php echo form_submit('submit', lang('Auth.reset_password_submit_btn'));?></p>
 
 <?php echo form_close();?>
+
+<?= $this->endSection() ?>

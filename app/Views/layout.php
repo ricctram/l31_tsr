@@ -17,7 +17,8 @@
         <nav>
             <ul>
                 <li><a href="<?= base_url(); ?>">Bacheca</a></li>
-                <li><a href="<?= base_url(); ?>cliente">Clienti</a>
+                <li>
+                    <a href="<?= base_url(); ?>cliente">Clienti</a>
                     <ul>
                         <li><a href="<?= base_url(); ?>cliente/create">Aggiungi Cliente</a></li>
                     </ul>
@@ -25,7 +26,13 @@
                 <li><a href="<?= base_url(); ?>evento">Eventi</a></li>
                 <li><a href="<?= base_url(); ?>prenotazione">Prenotazioni</a></li>
                 <li><a href="<?= base_url(); ?>menu">Menu</a></li>
-                <li><a href="<?= base_url(); ?>utente">Utenti</a></li>
+                <li>
+                    <a href="<?= base_url(); ?>auth">Utenti</a>
+                    <ul>
+                        <li><a href="<?= base_url(); ?>auth/create_user">Aggiungi Utente</a></li>
+                        <li><a href="<?= base_url(); ?>auth/create_group">Aggiungi Gruppo</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?= base_url(); ?>profilo">Profilo</a></li>
             </ul>
         </nav>

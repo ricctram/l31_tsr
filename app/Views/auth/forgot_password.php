@@ -1,3 +1,7 @@
+<?= $this->extend('layout') ?>
+
+<?= $this->section('content') ?>
+
 <h1><?php echo lang('Auth.forgot_password_heading');?></h1>
 <p><?php echo sprintf(lang('Auth.forgot_password_subheading'), $identity_label);?></p>
 
@@ -13,3 +17,5 @@
       <p><?php echo form_submit('submit', lang('Auth.forgot_password_submit_btn'));?></p>
 
 <?php echo form_close();?>
+
+<?= $this->endSection() ?>

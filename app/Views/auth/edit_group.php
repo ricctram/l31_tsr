@@ -1,3 +1,7 @@
+<?= $this->extend('layout') ?>
+
+<?= $this->section('content') ?>
+
 <h1><?php echo lang('Auth.edit_group_heading');?></h1>
 <p><?php echo lang('Auth.edit_group_subheading');?></p>
 
@@ -18,3 +22,5 @@
       <p><?php echo form_submit('submit', lang('Auth.edit_group_submit_btn'));?></p>
 
 <?php echo form_close();?>
+
+<?= $this->endSection() ?>
