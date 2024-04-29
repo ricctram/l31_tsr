@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-// Rotte per il sistema di autenticazione
+// Rotte per il sistema di autenticazione e gestione utenti
 $routes->get('auth/', 'Auth::index');
 $routes->get('auth/login', 'Auth::login');
 $routes->post('auth/login', 'Auth::login');
@@ -51,11 +51,11 @@ $routes->get('utente/delete/(:num)', 'Utente::delete/$1');
 
 // Rotte per i clienti
 $routes->get('cliente', 'Cliente::index');
-$routes->get('cliente/create', 'Cliente::create');
-$routes->post('cliente/store', 'Cliente::store');
-$routes->get('cliente/edit/(:num)', 'Cliente::edit/$1');
-$routes->post('cliente/update/(:num)', 'Cliente::update/$1');
-$routes->get('cliente/delete/(:num)', 'Cliente::delete/$1');
+//$routes->get('cliente/create', 'Cliente::create');
+//$routes->post('cliente/store', 'Cliente::store');
+//$routes->get('cliente/edit/(:num)', 'Cliente::edit/$1');
+//$routes->post('cliente/update/(:num)', 'Cliente::update/$1');
+//$routes->get('cliente/delete/(:num)', 'Cliente::delete/$1');
 
 // Rotte per il menu
 $routes->get('menu', 'Menu::index');
