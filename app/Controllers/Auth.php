@@ -98,7 +98,8 @@ class Auth extends BaseController
 		{
 			// redirect them to the home page because they must be an administrator to view this
 			//show_error('You must be an administrator to view this page.');
-			throw new \Exception('You must be an administrator to view this page.');
+			//throw new \Exception('You must be an administrator to view this page.');
+			return redirect()->to('/')->with('error', 'Non sei abilitato a vedere questa pagina');
 		}
 		else
 		{
