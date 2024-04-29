@@ -2,13 +2,12 @@
 
 <?= $this->section('content') ?>
 <h2>Elenco Clienti</h2>
-<?php if (empty($customers)): ?>
+<?php if (empty($clienti)): ?>
     <p>Nessun cliente presente nel database al momento.</p>
 <?php else: ?>
 <table>
     <thead>
         <tr>
-            <th>ID</th>
             <th>Nome</th>
             <th>Cognome</th>
             <th>Telefono</th>
@@ -17,16 +16,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($customers as $customer): ?>
+        <?php foreach ($clienti as $cliente): ?>
             <tr>
-                <td><?= $customer['customer_id'] ?></td>
-                <td><?= $customer['first_name'] ?></td>
-                <td><?= $customer['last_name'] ?></td>
-                <td><?= $customer['phone'] ?></td>
-                <td><?= $customer['email'] ?></td>
+                <td><?= $cliente->first_name ?></td>
+                <td><?= $cliente->last_name ?></td>
+                <td><?= $cliente->phone ?></td>
+                <td><?= $cliente->email ?></td>
                 <td>
-                    <a href="<?= site_url('cliente/edit/'.$customer['customer_id']) ?>">Modifica</a>
-                    <a href="<?= site_url('cliente/delete/'.$customer['customer_id']) ?>" onclick="return confirm('Sei sicuro di voler eliminare questo cliente?')">Elimina</a>
+                    <a href="<?= site_url('auth/edit_user/'.$cliente->id) ?>">Modifica</a>
+                    <a href="<?= site_url('auth/delete_user/'.$cliente->id) ?>" onclick="return confirm('Sei sicuro di voler eliminare questo cliente?')">Elimina</a>
                 </td>
             </tr>
         <?php endforeach; ?>

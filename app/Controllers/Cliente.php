@@ -7,15 +7,31 @@ use CodeIgniter\Controller;
 
 class Cliente extends Controller
 {
+
+    public function __construct() {
+        $this->ionAuth = new \IonAuth\Libraries\IonAuth();        
+    }
+
     /**
      * Mostra la lista dei clienti.
      */
     public function index()
     {
-        $clienteModel = new ClienteModel();
-        $data['customers'] = $clienteModel->findAll();
+        // Verifica se l'utente corrente appartiene al gruppo admin
+        if ($this->ionAuth->loggedIn() && $this->ionAuth->inGroup('admin')) {
+            // Ottieni tutti gli utenti che appartengono al gruppo cliente
+            $clienti = $this->ionAuth->users('cliente')->result();            
 
-        return view('cliente/index', $data);
+            // Passa i dati alla vista
+            $data['clienti'] = $clienti;
+
+            // Carica la vista per visualizzare i clienti
+            return view('cliente/index', $data);
+        } else {
+            // L'utente non appartiene al gruppo admin, rimandalo alla home
+            return redirect()->to('/')->with('error', 'Non sei abilitato a vedere questa pagina');
+        }
+
     }
 
     /**
