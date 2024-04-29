@@ -33,7 +33,12 @@
                         <li><a href="<?= base_url(); ?>auth/create_group">Aggiungi Gruppo</a></li>
                     </ul>
                 </li>
-                <li><a href="<?= base_url(); ?>profilo">Profilo</a></li>
+                <li>
+                    <a href="<?= base_url(); ?>profilo">Profilo</a>
+                    <ul>
+                        <li><a href="<?= base_url(); ?>auth/logout">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
