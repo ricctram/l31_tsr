@@ -76,6 +76,8 @@ class Auth extends BaseController
 		$this->configIonAuth = config('IonAuth');
 		$this->session       = \Config\Services::session();
 
+		$this->data['ionAuth'] = $this->ionAuth;
+
 		if (! empty($this->configIonAuth->templates['errors']['list']))
 		{
 			$this->validationListTemplate = $this->configIonAuth->templates['errors']['list'];

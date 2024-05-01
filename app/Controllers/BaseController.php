@@ -43,6 +43,10 @@ abstract class BaseController extends Controller
      */
     // protected $session;
 
+    public function __construct() {
+        $this->ionAuth = new \IonAuth\Libraries\IonAuth();  
+    }
+
     /**
      * @return void
      */

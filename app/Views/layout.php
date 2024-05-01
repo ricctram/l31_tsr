@@ -10,35 +10,59 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
+<?= $this->renderSection('additional_data') ?>
+
 <body>
     <header>
         <!-- Header -->
-        <h1>Header del Sito</h1>
+        <!-- Menu -->
         <nav>
             <ul>
                 <li><a href="<?= base_url(); ?>">Bacheca</a></li>
-                <li>
-                    <a href="<?= base_url(); ?>cliente">Clienti</a>
-                    <ul>
-                        <li><a href="<?= base_url(); ?>cliente/create">Aggiungi Cliente</a></li>
-                    </ul>
-                </li>
-                <li><a href="<?= base_url(); ?>evento">Eventi</a></li>
-                <li><a href="<?= base_url(); ?>prenotazione">Prenotazioni</a></li>
-                <li><a href="<?= base_url(); ?>menu">Menu</a></li>
-                <li>
-                    <a href="<?= base_url(); ?>auth">Utenti</a>
-                    <ul>
-                        <li><a href="<?= base_url(); ?>auth/create_user">Aggiungi Utente</a></li>
-                        <li><a href="<?= base_url(); ?>auth/create_group">Aggiungi Gruppo</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="<?= base_url(); ?>profilo">Profilo</a>
-                    <ul>
-                        <li><a href="<?= base_url(); ?>auth/logout">Logout</a></li>
-                    </ul>
-                </li>
+                <?php if ($ionAuth->loggedIn()): ?>
+                    <?php if ($ionAuth->inGroup('admin')): ?>
+                    <li>
+                        <a href="#">Eventi</a>
+                        <ul>
+                            <li><a href="<?= base_url(); ?>evento">Tutti gli Eventi</a></li>
+                            <li><a href="<?= base_url(); ?>evento/create">Aggiungi Evento</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Menu</a>
+                        <ul>
+                            <li><a href="<?= base_url(); ?>menu">Tutti i Menu</a></li>
+                            <li><a href="<?= base_url(); ?>menu/create">Aggiungi Menu</a></li>
+                            <li><a href="<?= base_url(); ?>menu_item">Tutti i Piatti</a></li>
+                            <li><a href="<?= base_url(); ?>menu_item/create">Aggiungi Piatto</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Pagamenti</a>
+                        <ul>
+                            <li><a href="<?= base_url(); ?>pagamenti">Tutti i Pagamenti</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Utenti</a>
+                        <ul>
+                            <li><a href="<?= base_url(); ?>auth">Tutti gli Utenti</a></li>
+                            <li><a href="<?= base_url(); ?>auth/create_user">Aggiungi Utente</a></li>
+                            <li><a href="<?= base_url(); ?>auth/create_group">Aggiungi Gruppo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?= base_url(); ?>profilo">Profilo</a></li>
+                    <li><a href="<?= base_url(); ?>auth/logout">Esci</a></li>
+                    <?php else: ?>
+                        <li>
+                            <a href="<?= base_url(); ?>evento/miei">Miei eventi</a>
+                        </li>
+                        <li><a href="<?= base_url(); ?>profilo">Profilo</a></li>
+                        <li><a href="<?= base_url(); ?>auth/logout">Esci</a></li>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <li><a href="<?= base_url(); ?>auth/login">Accedi</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

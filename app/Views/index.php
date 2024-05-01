@@ -27,3 +27,10 @@
 
 </div>
 <?= $this->endSection() ?>
+
+<?php $this->section('additional_data') ?>
+    <?php
+    // Includi $ionAuth nel layout per renderlo disponibile in tutto il layout
+    echo view('partials/additional_data', ['ionAuth' => $ionAuth]);
+    ?>
+<?php $this->endSection() ?>
