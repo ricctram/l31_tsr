@@ -19,9 +19,10 @@ class Evento extends BaseController
 
     public function index()
     {
+        $data['ionAuth'] = $this->ionAuth;
+        
         // Ottieni gli eventi dal modello
         $data['eventi'] = $this->eventoModel->getEventiWithUsers();
-        $data['ionAuth'] = $this->ionAuth;
 
         // Carica la vista con i dati
         return view('evento/index', $data);
@@ -30,13 +31,13 @@ class Evento extends BaseController
     public function create()
     {
         $data['ionAuth'] = $this->ionAuth;
+        
         $data['utenti'] = $this->eventoModel->getUsers();
         return view('evento/create', $data);
     }
 
     public function store()
     {
-
         // Recupera i dati del form
         $data = [
             'user_id' => $this->request->getPost('user_id'),
@@ -55,6 +56,7 @@ class Evento extends BaseController
     public function edit($id)
     {
         $data['ionAuth'] = $this->ionAuth;
+        
         $data['utenti'] = $this->eventoModel->getUsers();
         $data['evento'] = $this->eventoModel->getEvento($id);
         return view('evento/edit', $data);

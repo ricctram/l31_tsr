@@ -9,6 +9,9 @@ class EventoModel extends Model
     protected $table = 'events';
     protected $primaryKey = 'event_id';
     protected $allowedFields = ['user_id', 'event_date', 'event_type', 'guest_count', 'notes', 'created_at', 'updated_at'];
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
 
     public function getEventi()
     {
