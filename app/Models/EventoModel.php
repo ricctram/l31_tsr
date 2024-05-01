@@ -1,33 +1,57 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Evento_model extends CI_Model {
+namespace App\Models;
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
+use CodeIgniter\Model;
+
+class EventoModel extends Model
+{
+    protected $table = 'events';
+    protected $primaryKey = 'event_id';
+    protected $allowedFields = ['user_id', 'event_date', 'event_type', 'guest_count', 'notes', 'created_at', 'updated_at'];
+
+    public function getEventi()
+    {
+        return $this->findAll();
     }
 
-    public function get_eventi() {
-        return $this->db->get('eventi')->result_array();
+    public function getEvento($id)
+    {
+        return $this->find($id);
     }
 
-    public function get_evento_by_id($id) {
-        return $this->db->get_where('eventi', array('id' => $id))->row_array();
+    public function createEvento($data)
+    {
+        return $this->insert($data);
     }
 
-    public function insert_evento($data) {
-        $this->db->insert('eventi', $data);
-        return $this->db->insert_id();
+    public function updateEvento($id, $data)
+    {
+        return $this->update($id, $data);
     }
 
-    public function update_evento($id, $data) {
-        $this->db->where('id', $id);
-        $this->db->update('eventi', $data);
+    public function deleteEvento($id)
+    {
+        return $this->delete($id);
     }
 
-    public function delete_evento($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('eventi');
+    public function getEventiWithUsers()
+    {
+        return $this->select('events.*, users.first_name, users.last_name, users.email, users.phone')
+                    ->join('users', 'users.id = events.user_id')
+                    ->findAll();
+    }
+
+    public function getEventoWithUser($id)
+    {
+        return $this->select('events.*, users.first_name, users.last_name, users.email')
+                    ->join('users', 'users.id = events.user_id')
+                    ->where('events.event_id', $id)
+                    ->first();
+    }
+
+    public function getUsers()
+    {
+        return $this->db->table('users')->get()->getResultArray();
     }
 }

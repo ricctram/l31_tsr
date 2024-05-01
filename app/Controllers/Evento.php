@@ -1,31 +1,93 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Evento extends CI_Controller {
+namespace App\Controllers;
 
-    public function __construct() {
+use App\Models\EventoModel;
+use CodeIgniter\Controller;
+
+class Evento extends BaseController
+{
+    public function __construct()
+    {
+        // Chiama il costruttore del genitore
         parent::__construct();
-        $this->load->model('evento_model');
+
+        // Carica il modello dell'evento
+        $this->eventoModel = new EventoModel();
+        $this->ionAuth = new \IonAuth\Libraries\IonAuth();
     }
 
-    public function index() {
-        $data['eventi'] = $this->evento_model->get_eventi();
-        $this->load->view('evento/index', $data);
+    public function index()
+    {
+        // Ottieni gli eventi dal modello
+        $data['eventi'] = $this->eventoModel->getEventiWithUsers();
+        $data['ionAuth'] = $this->ionAuth;
+
+        // Carica la vista con i dati
+        return view('evento/index', $data);
     }
 
-    public function create() {
-        // Codice per la creazione di un nuovo evento (form di inserimento, validazione, ecc.)
+    public function create()
+    {
+        $data['ionAuth'] = $this->ionAuth;
+        $data['utenti'] = $this->eventoModel->getUsers();
+        return view('evento/create', $data);
     }
 
-    public function edit($id) {
-        // Codice per la modifica di un evento esistente
+    public function store()
+    {
+
+        // Recupera i dati del form
+        $data = [
+            'user_id' => $this->request->getPost('user_id'),
+            'event_type' => $this->request->getPost('event_type'),
+            'event_date' => $this->request->getPost('event_date'),
+            'guest_count' => $this->request->getPost('guest_count'),
+            'notes' => $this->request->getPost('notes'),
+        ];
+
+        // Salva il nuovo cliente
+        $this->eventoModel->insert($data);
+
+        return redirect()->to('/evento')->with('success', 'Evento creato con successo.');
     }
 
-    public function update($id) {
-        // Codice per l'aggiornamento di un evento
+    public function edit($id)
+    {
+        $data['ionAuth'] = $this->ionAuth;
+        $data['utenti'] = $this->eventoModel->getUsers();
+        $data['evento'] = $this->eventoModel->getEvento($id);
+        return view('evento/edit', $data);
     }
 
-    public function delete($id) {
-        // Codice per la cancellazione di un evento
+    public function update($id)
+    {
+        // Recupera i dati del form
+        $data = [
+            'user_id' => $this->request->getPost('user_id'),
+            'event_type' => $this->request->getPost('event_type'),
+            'event_date' => $this->request->getPost('event_date'),
+            'guest_count' => $this->request->getPost('guest_count'),
+            'notes' => $this->request->getPost('notes'),
+        ];
+
+        // Aggiorna il cliente
+        $this->eventoModel->update($id, $data);
+
+        return redirect()->to('/evento')->with('success', 'Evento aggiornato con successo.');
+    }
+
+    public function delete($id)
+    {
+        // Verifica se il cliente esiste
+        $evento = $this->eventoModel->find($id);
+        if (!$evento) {
+            return redirect()->to('/evento')->with('error', 'Evento non trovato.');
+        }
+
+        // Elimina il cliente
+        $this->eventoModel->delete($id);
+
+        return redirect()->to('/evento')->with('success', 'Evento eliminato con successo.');
     }
 }
