@@ -38,12 +38,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Pagamenti</a>
-                        <ul>
-                            <li><a href="<?= base_url(); ?>pagamenti">Tutti i Pagamenti</a></li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#">Utenti</a>
                         <ul>
                             <li><a href="<?= base_url(); ?>auth">Tutti gli Utenti</a></li>
