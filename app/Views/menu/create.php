@@ -5,14 +5,20 @@
 
 <form action="<?= site_url('menu/store') ?>" method="post">
 
+    <div>
     <label for="menu_name">Nome menu:</label>
     <input type="text" name="menu_name" id="menu_name" required>
+    </div>
 
+    <div>
     <label for="description">Descrizione:</label>
     <input type="text" name="description" id="description" required>
+    </div>
 
+    <div>
     <label for="price_per_person">Prezzo per persona:</label>
     <input type="text" name="price_per_person" id="price_per_person" required>
+    </div>
 
     <?php if (!empty($menu_items)) :?>
         <h3>Scegli cosa inserire nel menù</h3>

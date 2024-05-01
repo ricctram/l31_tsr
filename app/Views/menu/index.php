@@ -21,7 +21,7 @@
                 <td><?= $menu['price_per_person'] ?></td>
                 <td>
                     <a href="<?= site_url('menu/edit/'.$menu['menu_id']) ?>">Modifica</a>
-                    <a href="<?= site_url('menu/delete/'.$menu['menu_id']) ?>" onclick="return confirm('Sei sicuro di voler eliminare questo cliente?')">Elimina</a>
+                    <a href="<?= site_url('menu/delete/'.$menu['menu_id']) ?>" onclick="return confirm('Sei sicuro di voler eliminare questo menu?')">Elimina</a>
                 </td>
             </tr>
         <?php endforeach; ?>
