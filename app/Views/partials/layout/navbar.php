@@ -1,9 +1,12 @@
 <!-- Navbar -->
 <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
   <div class="container-fluid">
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
-   <span class="navbar-toggler-icon"></span>
-   </button>
+
+   <div class="layout-menu-toggle navbar-nav d-lg-none align-items-lg-center">
+      <a class="nav-item nav-link px-0 me-lg-4" href="javascript:void(0)">
+        <i class="bx bx-menu bx-sm align-middle"></i>
+      </a>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbar-ex-7">
    

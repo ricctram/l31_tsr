@@ -15,6 +15,22 @@
     </p>
 </section>
 
+<hr>
+
+<section>
+<h6>UniPegaso</h6>
+<p>
+    <span class="footer-text fw-bold">Corso di Laurea:</span> Informatica per le aziende digitali (L31) <br>
+    <span class="footer-text fw-bold">Insegnamento:</span> Tecnologie Web <br>
+    <span class="footer-text fw-bold">Titolo tesi:</span> Ottimizzazione dei Processi e Miglioramento dei Servizi: Un'Analisi dell'Integrazione di un'Applicazione SaaS nelle Sale Ricevimenti
+</p>
+<p></p>
+<p>
+    <span class="footer-text fw-bold">Candidato:</span> Riccardo Tramonte (Matr. 0312200265) <br>
+    <span class="footer-text fw-bold">Relatore:</span> Prof. Stefano D'Urso
+</p>
+</section>
+
 <?= $this->endSection() ?>
 
 <?php $this->section('additional_data') ?>

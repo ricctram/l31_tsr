@@ -2,9 +2,7 @@
         <footer class="content-footer footer bg-light">
           <div class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 py-3">
             <div>
-              <small>UniPegaso - Informatica per le aziende digitali (L31) - Tecnologie Web</small> <br>
-              <small>Titolo tesi: Ottimizzazione dei Processi e Miglioramento dei Servizi: Un'Analisi dell'Integrazione di un'Applicazione SaaS nelle Sale Ricevimenti</small> <br>
-              <small>Candidato: <span class="footer-text fw-bold">Riccardo Tramonte</span> © <?= date('Y') ?> (Matr. 0312200265) - Relatore: <span class="footer-text fw-bold">Prof. Stefano D'Urso</span></small><br>
+              <small>Riccardo Tramonte © <?= date('Y') ?> - Tutti i diritti riservati</small><br>
             </div>
             <div>
               <a href="<?= base_url('downloads/tesi.pdf'); ?>" class="footer-link me-4">Tesi</a>
