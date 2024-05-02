@@ -1,1 +1,1 @@
-<p><?= esc($message) ?></p>
+<?= esc($message) ?>
