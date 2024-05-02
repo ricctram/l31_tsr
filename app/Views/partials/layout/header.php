@@ -4,10 +4,10 @@
   <!-- Layout container -->
   <div class="layout-container">
     
-    <?= $this->include('partials/menu_nav'); ?>   
+    <?= $this->include('partials/layout/menu_nav'); ?>   
     
 
     <!-- Layout page -->
     <div class="layout-page">
 
-    <?= $this->include('partials/navbar'); ?>
+    <?= $this->include('partials/layout/navbar'); ?>

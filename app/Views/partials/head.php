@@ -22,6 +22,7 @@
 
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css');?>" />
+  <link rel="stylesheet" href="<?=base_url('assets/vendor/libs/bs-stepper/bs-stepper.css');?>" />
 
   <!-- Helpers -->
   <script src="<?=base_url('assets/vendor/js/helpers.js');?>"></script>

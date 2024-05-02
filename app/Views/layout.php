@@ -8,9 +8,9 @@
 
 <body>
 
-    <?= $this->include('partials/header'); ?>
-    <?= $this->include('partials/main'); ?>
-    <?= $this->include('partials/footer'); ?>
+    <?= $this->include('partials/layout/header'); ?>
+    <?= $this->include('partials/layout/main'); ?>
+    <?= $this->include('partials/layout/footer'); ?>
 
 </body>
 
