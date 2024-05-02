@@ -223,24 +223,28 @@ class Auth extends BaseController
 				'name' => 'old',
 				'id'   => 'old',
 				'type' => 'password',
+				'class'	=> 'form-control',
 			];
 			$this->data['new_password'] = [
 				'name'    => 'new',
 				'id'      => 'new',
 				'type'    => 'password',
 				'pattern' => '^.{' . $this->data['minPasswordLength'] . '}.*$',
+				'class'	=> 'form-control',
 			];
 			$this->data['new_password_confirm'] = [
 				'name'    => 'new_confirm',
 				'id'      => 'new_confirm',
 				'type'    => 'password',
 				'pattern' => '^.{' . $this->data['minPasswordLength'] . '}.*$',
+				'class'	=> 'form-control',
 			];
 			$this->data['user_id'] = [
 				'name'  => 'user_id',
 				'id'    => 'user_id',
 				'type'  => 'hidden',
 				'value' => $user->id,
+				'class'	=> 'form-control',
 			];
 
 			// render
@@ -382,18 +386,21 @@ class Auth extends BaseController
 					'id'      => 'new',
 					'type'    => 'password',
 					'pattern' => '^.{' . $this->data['minPasswordLength'] . '}.*$',
+					'class'	=> 'form-control',
 				];
 				$this->data['new_password_confirm'] = [
 					'name'    => 'new_confirm',
 					'id'      => 'new_confirm',
 					'type'    => 'password',
 					'pattern' => '^.{' . $this->data['minPasswordLength'] . '}.*$',
+					'class'	=> 'form-control',
 				];
 				$this->data['user_id'] = [
 					'name'  => 'user_id',
 					'id'    => 'user_id',
 					'type'  => 'hidden',
 					'value' => $user->id,
+					'class'	=> 'form-control',
 				];
 				$this->data['code'] = $code;
 
@@ -590,48 +597,58 @@ class Auth extends BaseController
 				'id'    => 'first_name',
 				'type'  => 'text',
 				'value' => set_value('first_name'),
+				'class'	=> 'form-control',
 			];
 			$this->data['last_name'] = [
 				'name'  => 'last_name',
 				'id'    => 'last_name',
 				'type'  => 'text',
 				'value' => set_value('last_name'),
+				'class'	=> 'form-control',
 			];
 			$this->data['identity'] = [
 				'name'  => 'identity',
 				'id'    => 'identity',
 				'type'  => 'text',
 				'value' => set_value('identity'),
+				'class'	=> 'form-control',
 			];
 			$this->data['email'] = [
 				'name'  => 'email',
 				'id'    => 'email',
 				'type'  => 'email',
 				'value' => set_value('email'),
+				'class'	=> 'form-control',
 			];
 			$this->data['company'] = [
 				'name'  => 'company',
 				'id'    => 'company',
 				'type'  => 'text',
 				'value' => set_value('company'),
+				'class'	=> 'form-control',
 			];
 			$this->data['phone'] = [
 				'name'  => 'phone',
 				'id'    => 'phone',
 				'type'  => 'text',
 				'value' => set_value('phone'),
+				'class'	=> 'form-control',
 			];
 			$this->data['password'] = [
 				'name'  => 'password',
 				'id'    => 'password',
 				'type'  => 'password',
 				'value' => set_value('password'),
+				'class'	=> 'form-control',
+				'aria-describedby' => 'password2',
 			];
 			$this->data['password_confirm'] = [
 				'name'  => 'password_confirm',
 				'id'    => 'password_confirm',
 				'type'  => 'password',
 				'value' => set_value('password_confirm'),
+				'class'	=> 'form-control',
+				'aria-describedby' => 'confirm-password2',
 			];
 
 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'create_user', $this->data);
@@ -677,8 +694,8 @@ class Auth extends BaseController
 			// validate form input
 			$this->validation->setRule('first_name', lang('Auth.edit_user_validation_fname_label'), 'trim|required');
 			$this->validation->setRule('last_name', lang('Auth.edit_user_validation_lname_label'), 'trim|required');
-			$this->validation->setRule('phone', lang('Auth.edit_user_validation_phone_label'), 'trim|required');
-			$this->validation->setRule('company', lang('Auth.edit_user_validation_company_label'), 'trim|required');
+			$this->validation->setRule('phone', lang('Auth.edit_user_validation_phone_label'), 'trim');
+			$this->validation->setRule('company', lang('Auth.edit_user_validation_company_label'), 'trim');
 
 			// do we have a valid request?
 			if ($id !== $this->request->getPost('id', FILTER_VALIDATE_INT))
@@ -755,34 +772,42 @@ class Auth extends BaseController
 			'id'    => 'first_name',
 			'type'  => 'text',
 			'value' => set_value('first_name', $user->first_name ?: ''),
+			'class'	=> 'form-control',
 		];
 		$this->data['last_name'] = [
 			'name'  => 'last_name',
 			'id'    => 'last_name',
 			'type'  => 'text',
 			'value' => set_value('last_name', $user->last_name ?: ''),
+			'class'	=> 'form-control',
 		];
 		$this->data['company'] = [
 			'name'  => 'company',
 			'id'    => 'company',
 			'type'  => 'text',
 			'value' => set_value('company', empty($user->company) ? '' : $user->company),
+			'class'	=> 'form-control',
 		];
 		$this->data['phone'] = [
 			'name'  => 'phone',
 			'id'    => 'phone',
 			'type'  => 'text',
 			'value' => set_value('phone', empty($user->phone) ? '' : $user->phone),
+			'class'	=> 'form-control',
 		];
 		$this->data['password'] = [
 			'name' => 'password',
 			'id'   => 'password',
 			'type' => 'password',
+			'class'	=> 'form-control',
+			'aria-describedby' => 'password2',
 		];
 		$this->data['password_confirm'] = [
 			'name' => 'password_confirm',
 			'id'   => 'password_confirm',
 			'type' => 'password',
+			'class'	=> 'form-control',
+			'aria-describedby' => 'confirm-password2',
 		];
 		$this->data['ionAuth'] = $this->ionAuth;
 
@@ -839,12 +864,14 @@ class Auth extends BaseController
 				'id'    => 'group_name',
 				'type'  => 'text',
 				'value' => set_value('group_name'),
+				'class'	=> 'form-control form-control-lg',
 			];
 			$this->data['description'] = [
 				'name'  => 'description',
 				'id'    => 'description',
 				'type'  => 'text',
 				'value' => set_value('description'),
+				'class'	=> 'form-control form-control-lg',
 			];
 
 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'create_group', $this->data);
@@ -916,6 +943,7 @@ class Auth extends BaseController
 			'id'      => 'group_name',
 			'type'    => 'text',
 			'value'   => set_value('group_name', $group->name),
+			'class'	=> 'form-control form-control-lg',
 			$readonly => $readonly,
 		];
 		$this->data['group_description'] = [
@@ -923,6 +951,7 @@ class Auth extends BaseController
 			'id'    => 'group_description',
 			'type'  => 'text',
 			'value' => set_value('group_description', $group->description),
+			'class'	=> 'form-control form-control-lg',
 		];
 
 		return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
