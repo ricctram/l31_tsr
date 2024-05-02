@@ -5,7 +5,7 @@
 <h1><?php echo lang('Auth.login_heading');?></h1>
 <p><?php echo lang('Auth.login_subheading');?></p>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<?php echo $message;?>
 
 <?php echo form_open('auth/login');?>
 

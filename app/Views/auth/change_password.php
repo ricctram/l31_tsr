@@ -4,7 +4,7 @@
 
 <h1><?php echo lang('Auth.change_password_heading');?></h1>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<?php echo $message;?>
 
 <?php echo form_open('auth/change_password');?>
 

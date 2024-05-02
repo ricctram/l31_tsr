@@ -5,7 +5,7 @@
 <h1><?php echo lang('Auth.forgot_password_heading');?></h1>
 <p><?php echo sprintf(lang('Auth.forgot_password_subheading'), $identity_label);?></p>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<?php echo $message;?>
 
 <?php echo form_open('auth/forgot_password');?>
 
