@@ -91,14 +91,14 @@ if (typeof TemplateCustomizer !== 'undefined') {
   window.templateCustomizer = new TemplateCustomizer({
     cssPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
     themesPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
-    displayCustomizer: true,
+    displayCustomizer: false,
     lang: localStorage.getItem('templateCustomizer-' + templateName + '--Lang') || 'en', // Set default language here
     defaultTheme: 2,
     defaultStyle: 'light',
     // defaultTextDir: 'rtl',
-    defaultContentLayout: 'wide',
+    defaultContentLayout: 'compact',
     // defaultHeaderType: 'static',
-    defaultMenuCollapsed: true,
+    // defaultMenuCollapsed: false,
     // defaultNavbarType: 'sticky',
     // defaultFooterFixed: false,
     // defaultShowDropdownOnHover: false,
