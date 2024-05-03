@@ -9,26 +9,48 @@
 
 <?php echo form_open('auth/login');?>
 
-  <p>
-    <?php echo form_label(lang('Auth.login_identity_label'), 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+<?php 
+    $attributesLabel = [
+          'class' => 'form-label',
+    ];
+    $attributesSubmit = [
+          'class' => 'btn btn-success btn-submit',
+    ];
+    ?>
 
-  <p>
-    <?php echo form_label(lang('Auth.login_password_label'), 'password');?>
-    <?php echo form_input($password);?>
-  </p>
+<div class="row g-3">
+    <div class="col-md-6">
+      
+      <div class="mb-3">
+        <?php echo form_label(lang('Auth.login_identity_label'), 'identity', $attributesLabel);?>
+        <?php echo form_input($identity);?>
+      </div>
+      
+      <div class="mb-3">
+        <?php echo form_label(lang('Auth.login_password_label'), 'password', $attributesLabel);?>
+        <?php echo form_input($password);?>
+      </div>
+      
+      <div class="mb-3">
+        <?php echo form_label(lang('Auth.login_remember_label'), 'remember');?>
+        <?php echo form_checkbox('remember', '1', false, 'id="remember"');?>
+      </div>
+    
+    </div>    
+</div>
 
-  <p>
-    <?php echo form_label(lang('Auth.login_remember_label'), 'remember');?>
-    <?php echo form_checkbox('remember', '1', false, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('Auth.login_submit_btn'));?></p>
+<div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <?php echo form_submit('submit', lang('Auth.login_submit_btn'), $attributesSubmit);?>
+    </div>
+</div>
 
 <?php echo form_close();?>
 
-<p><a href="forgot_password"><?php echo lang('Auth.login_forgot_password');?></a></p>
+<div class="row g-3">
+  <div class="col-md-6">
+    <p><a href="forgot_password"><?php echo lang('Auth.login_forgot_password');?></a></p>
+  </div>
+</div>
 
 <?= $this->endSection() ?>
