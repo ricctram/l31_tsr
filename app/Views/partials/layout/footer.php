@@ -5,8 +5,8 @@
               <small>Riccardo Tramonte © <?= date('Y') ?> - Tutti i diritti riservati</small><br>
             </div>
             <div>
-              <a href="<?= base_url('downloads/tesi.pdf'); ?>" class="footer-link me-4">Tesi</a>
-              <a href="<?= base_url(); ?>contatti" class="footer-link">Contatti</a>
+              <a href="<?= base_url('downloads/tesi.pdf'); ?>" class="footer-link me-4 nav-link disabled">Tesi</a>
+              <a href="<?= base_url(); ?>contatti" class="footer-link nav-link disabled">Contatti</a>
             </div>
           </div>
         </footer>
@@ -45,6 +45,7 @@
 <script src="<?=base_url('assets/vendor/libs/i18n/i18n.js');?>"></script>
 <script src="<?=base_url('assets/vendor/libs/bs-stepper/bs-stepper.js');?>"></script>
 <script src="<?=base_url('assets/vendor/libs/sweetalert2/sweetalert2.js');?>"></script>
+<script src="<?=base_url('assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js');?>"></script>
 <!-- endbuild -->
 
 <!-- Main JS -->
