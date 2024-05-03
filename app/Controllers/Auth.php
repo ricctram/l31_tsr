@@ -165,12 +165,14 @@ class Auth extends BaseController
 				'id'    => 'identity',
 				'type'  => 'text',
 				'value' => set_value('identity'),
+				'class'	=> 'form-control',
 			];
 
 			$this->data['password'] = [
 				'name' => 'password',
 				'id'   => 'password',
 				'type' => 'password',
+				'class'	=> 'form-control',
 			];
 
 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'login', $this->data);
