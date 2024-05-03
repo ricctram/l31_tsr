@@ -111,6 +111,23 @@
         </div></a>
       </li>
 
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text" data-i18n="Impostazioni sala"></span>
+      </li>    
+      
+      <li class="menu-item">
+        <a class="menu-link" href="#"><i class='menu-icon bx bx-building-house' ></i>
+        <div>
+          Le mie sale
+        </div></a>
+      </li>
+      <li class="menu-item">
+        <a class="menu-link" href="#"><i class="menu-icon bx bx-plus"></i>
+        <div>
+          Aggiungi sala
+        </div></a>
+      </li>
+
       <?php else: ?>
 
       <li class="menu-header small text-uppercase">
