@@ -44,10 +44,14 @@
 <script src="<?=base_url('assets/vendor/js/menu.js');?>"></script>
 <script src="<?=base_url('assets/vendor/libs/i18n/i18n.js');?>"></script>
 <script src="<?=base_url('assets/vendor/libs/bs-stepper/bs-stepper.js');?>"></script>
+<script src="<?=base_url('assets/vendor/libs/sweetalert2/sweetalert2.js');?>"></script>
 <!-- endbuild -->
 
 <!-- Main JS -->
 <script src="<?=base_url('assets/js/main.js');?>"></script>
 
-<!-- Custom JS -->
+<!-- Custom JS globali -->
 <script src="<?=base_url('assets/js/custom.js');?>"></script>
+
+<!-- Custom JS locali -->
+<?= $this->renderSection('script') ?>
