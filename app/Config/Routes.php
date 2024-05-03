@@ -32,6 +32,7 @@ $routes->post('auth/reset_password/(:hash)', 'Auth::reset_password/$1');
 $routes->get('evento', 'Evento::index');
 $routes->get('evento/create', 'Evento::create');
 $routes->post('evento/store', 'Evento::store');
+$routes->get('evento/show/(:num)', 'Evento::show/$1');
 $routes->get('evento/edit/(:num)', 'Evento::edit/$1');
 $routes->post('evento/update/(:num)', 'Evento::update/$1');
 $routes->get('evento/delete/(:num)', 'Evento::delete/$1');
