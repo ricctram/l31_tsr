@@ -15,10 +15,7 @@
         <?php if ($ionAuth->loggedIn()): ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>profilo"><i class="tf-icons navbar-icon bx bx-user"></i> Profilo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>impostazioni"><i class="tf-icons navbar-icon bx bx-cog"></i> Impostazioni</a>
+                <a class="nav-link" href="#"><i class="tf-icons navbar-icon bx bx-user"></i> Profilo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>auth/logout"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Esci</a>
