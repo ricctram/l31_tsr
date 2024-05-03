@@ -115,13 +115,13 @@
         <span class="menu-header-text" data-i18n="Impostazioni sala"></span>
       </li>    
       
-      <li class="menu-item">
+      <li class="menu-item disabled">
         <a class="menu-link" href="#"><i class='menu-icon bx bx-building-house' ></i>
         <div>
           Le mie sale
         </div></a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item disabled">
         <a class="menu-link" href="#"><i class="menu-icon bx bx-plus"></i>
         <div>
           Aggiungi sala
