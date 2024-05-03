@@ -7,7 +7,8 @@
     <h1><i class="bx bx-user bx-md"></i> <?php echo lang('Auth.index_heading');?></h1>
     </div>
     <div class="col mt-3">
-        <a class="btn btn-primary float-end" href="<?= base_url(); ?>auth/create_user">Aggiungi utente</a>
+        <a class="btn btn-secondary float-end" href="<?= base_url(); ?>auth/create_group">Aggiungi gruppo</a>
+        <a class="btn btn-primary float-end me-3" href="<?= base_url(); ?>auth/create_user">Aggiungi utente</a>
     </div>
 </div>
 
@@ -45,7 +46,7 @@
 				<?php endif; ?>
 			<?php endforeach?>
 		</td>
-		<td><?php echo ($user->active) ? anchor('auth/deactivate/' . $user->id, lang('Auth.index_active_link')) : anchor("auth/activate/". $user->id, lang('Auth.index_inactive_link'));?></td>
+		<td><?php echo ($user->active) ? anchor('auth/deactivate/' . $user->id, '<i class=\'bx bx-check-circle bx-sm text-success\' ></i>') : anchor("auth/activate/". $user->id, '<i class=\'bx bx-check-circle bx-sm text-danger\' ></i>');?></td>
         <td>
           <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -60,8 +61,6 @@
     </tbody>
   </table>
 </div>
-
-<p><?php echo anchor('auth/create_user', lang('Auth.index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('Auth.index_create_group_link'))?></p>
 
 <?= $this->endSection() ?>
 

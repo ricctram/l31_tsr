@@ -135,8 +135,8 @@
       </li>
 
       
-      <li class="menu-item">
-        <a class="menu-link" href="<?= base_url(); ?>evento/miei"><i class="menu-icon bx bx-calendar"></i>
+      <li class="menu-item disabled">
+        <a class="menu-link" href="#"><i class="menu-icon bx bx-calendar"></i>
         <div>
           I miei eventi
         </div></a>
