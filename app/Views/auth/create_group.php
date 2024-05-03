@@ -18,19 +18,24 @@
             ];
       ?>
 
-
+<div class="row g-3">
+    <div class="col-md-6"> 
       <div class="mb-3">
             <?php echo form_label(lang('Auth.create_group_name_label'), 'group_name', $attributesLabel);?>
             <?php echo form_input($group_name);?>
       </div>
 
-
       <div class="mb-3">
             <?php echo form_label(lang('Auth.create_group_desc_label'), 'description', $attributesLabel);?> <br />
             <?php echo form_input($description);?>
       </div>
-
-      <p><?php echo form_submit('submit', lang('Auth.create_group_submit_btn'), $attributesSubmit);?></p>
+      </div>
+</div>
+<div class="row g-3">
+      <div class="mb-3">
+      <?php echo form_submit('submit', lang('Auth.create_group_submit_btn'), $attributesSubmit);?>
+      </div>
+</div>
 
 <?php echo form_close();?>
 
