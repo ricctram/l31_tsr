@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<h1><?php echo lang('Auth.index_heading');?></h1>
+<h1><i class="bx bx-user bx-md"></i> <?php echo lang('Auth.index_heading');?></h1>
 <p><?php echo lang('Auth.index_subheading');?></p>
 
 <?php echo $message;?>
@@ -54,5 +54,47 @@
 </div>
 
 <p><?php echo anchor('auth/create_user', lang('Auth.index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('Auth.index_create_group_link'))?></p>
+
+<?= $this->endSection() ?>
+
+
+
+
+<?= $this->section('script') ?>
+
+<script>
+
+const confirmText = document.querySelector('#confirm-text');
+
+// ALERT WITH FUNCTIONAL CONFIRM BUTTON
+confirmText.onclick = function() {
+  Swal.fire({
+    title: 'Sei sicuro?',
+    text: "Non si torna indietro!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, eliminalo!',
+    customClass: {
+      confirmButton: 'btn btn-primary me-1',
+      cancelButton: 'btn btn-label-secondary'
+    },
+    buttonsStyling: false
+  }).then(function(result) {
+    if (result.value) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminato!',
+        text: 'Il record è stato correttamente eliminato.',
+        customClass: {
+          confirmButton: 'btn btn-success'
+        }
+      });
+    }
+  });
+}
+
+</script>
 
 <?= $this->endSection() ?>

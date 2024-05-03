@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<h1><?php echo lang('Auth.create_user_heading');?></h1>
+<h1><i class="bx bx-user bx-md"></i> <?php echo lang('Auth.create_user_heading');?></h1>
 <p><?php echo lang('Auth.create_user_subheading');?></p>
 
 <?php echo $message;?>
