@@ -53,6 +53,17 @@ class Evento extends BaseController
         return redirect()->to('/evento')->with('success', 'Evento creato con successo.');
     }
 
+    /**
+     * Mostra i dettagli di un evento.
+     */
+    public function show($id) {
+        $data['ionAuth'] = $this->ionAuth;
+
+        $data['evento'] = $this->eventoModel->getEvento($id);
+
+        return view('evento/show', $data);
+    }
+
     public function edit($id)
     {
         $data['ionAuth'] = $this->ionAuth;
