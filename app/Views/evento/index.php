@@ -1,7 +1,16 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<h1> <i class="bx bx-calendar bx-md"></i> Elenco Eventi</h1>
+
+  <div class="row">
+    <div class="col">
+    <h1> <i class="bx bx-calendar bx-md"></i> Elenco Eventi</h1>
+    </div>
+    <div class="col mt-3">
+        <a class="btn btn-primary float-end" href="<?= base_url(); ?>evento/create">Aggiungi evento</a>
+    </div>
+  </div>
+
 <?php if (empty($eventi)): ?>
     <p>Nessun evento presente nel database al momento.</p>
 <?php else: ?>

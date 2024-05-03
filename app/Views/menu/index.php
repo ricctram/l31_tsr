@@ -1,7 +1,18 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<h1> <i class="bx bx-dish bx-md"></i> Elenco Menu</h1>
+
+
+<div class="row">
+    <div class="col">
+    <h1> <i class="bx bx-dish bx-md"></i> Elenco Menu</h1>
+    </div>
+    <div class="col mt-3">
+        <a class="btn btn-primary float-end" href="<?= base_url(); ?>menu/create">Aggiungi menu</a>
+    </div>
+</div>
+
+
 <?php if (empty($menus)): ?>
     <p>Nessun menu presente nel database al momento.</p>
 <?php else: ?>

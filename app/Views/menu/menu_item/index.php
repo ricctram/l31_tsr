@@ -1,7 +1,16 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<h1> <i class="bx bx-bowl-hot bx-md"></i> Elenco Piatti</h1>
+
+<div class="row">
+    <div class="col">
+    <h1> <i class="bx bx-bowl-hot bx-md"></i> Elenco Piatti</h1>
+    </div>
+    <div class="col mt-3">
+        <a class="btn btn-primary float-end" href="<?= base_url(); ?>menu_item/create">Aggiungi piatto</a>
+    </div>
+</div>
+
 <?php if (empty($menu_items)): ?>
     <p>Nessun piatto al momento disponibile.</p>
 <?php else: ?>

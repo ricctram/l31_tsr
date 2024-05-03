@@ -2,7 +2,15 @@
 
 <?= $this->section('content') ?>
 
-<h1><i class="bx bx-user bx-md"></i> <?php echo lang('Auth.index_heading');?></h1>
+<div class="row">
+    <div class="col">
+    <h1><i class="bx bx-user bx-md"></i> <?php echo lang('Auth.index_heading');?></h1>
+    </div>
+    <div class="col mt-3">
+        <a class="btn btn-primary float-end" href="<?= base_url(); ?>auth/create_user">Aggiungi utente</a>
+    </div>
+</div>
+
 <p><?php echo lang('Auth.index_subheading');?></p>
 
 <?php echo $message;?>
